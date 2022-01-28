@@ -5,7 +5,7 @@
 
 <br>
 <p align="center">
-  <img alt="Youtube Clone" src=".github/youtube.gif" width="75%">
+  <img alt="Youtube Clone" src=".github/youtube.gif" width="100%">
 </p>
 <br>
 
