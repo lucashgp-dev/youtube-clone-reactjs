@@ -4,6 +4,10 @@
 ## Projeto React.js tela inicial do YouTube com a biblioteca Material-UI.
 
 <br>
+<p align="center">
+  <img alt="Youtube Clone" src=".github/youtube.gif" width="75%">
+</p>
+<br>
 
 ### Foram utilizados os principais recursos da biblioteca Material-UI: 
 
