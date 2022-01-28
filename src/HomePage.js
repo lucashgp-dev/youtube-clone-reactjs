@@ -75,7 +75,6 @@ const useStyles = makeStyles((theme) => ({
     color: "#606060",
   },
 }));
-
 const videos = [
   {
     id: 1,
@@ -157,6 +156,21 @@ const videos = [
     thumb: "/images/thumb8.png",
   },
 ];
+const categorias1 = [
+  { nome: "Inicio", typeIcon: <Home /> },
+  { nome: "Explorar", typeIcon: <Whatshot /> },
+  { nome: "Inscrições", typeIcon: <Subscriptions /> },
+];
+const categorias2 = [
+  "Música",
+  "Esportes",
+  "Jogos",
+  "Filmes",
+  "Notícias",
+  "Ao vivo",
+  "Destaques",
+  "Vídeos 360",
+];
 
 function HomePage({ darkMode, setDarkMode }) {
   const classes = useStyles();
@@ -219,35 +233,20 @@ function HomePage({ darkMode, setDarkMode }) {
             }}
           >
             <Toolbar />
+
             <div className={classes.drawerContainer}>
               <List>
-                <ListItem button classes={{ root: classes.ListItem }}>
-                  <ListItemIcon>{<Home />} </ListItemIcon>
-                  <ListItemText
-                    classes={{
-                      primary: classes.listItemText,
-                    }}
-                    primary={"Início"}
-                  />
-                </ListItem>
-                <ListItem button classes={{ root: classes.ListItem }}>
-                  <ListItemIcon>{<Whatshot />} </ListItemIcon>
-                  <ListItemText
-                    classes={{
-                      primary: classes.listItemText,
-                    }}
-                    primary={"Explorar"}
-                  />
-                </ListItem>
-                <ListItem button classes={{ root: classes.ListItem }}>
-                  <ListItemIcon>{<Subscriptions />} </ListItemIcon>
-                  <ListItemText
-                    classes={{
-                      primary: classes.listItemText,
-                    }}
-                    primary={"Inscrições"}
-                  />
-                </ListItem>
+                {categorias1.map((item, index) => (
+                  <ListItem button classes={{ root: classes.ListItem }}>
+                    <ListItemIcon>{item.typeIcon} </ListItemIcon>
+                    <ListItemText
+                      classes={{
+                        primary: classes.listItemText,
+                      }}
+                      primary={item.nome}
+                    />
+                  </ListItem>
+                ))}
               </List>
 
               <Divider />
@@ -272,6 +271,8 @@ function HomePage({ darkMode, setDarkMode }) {
                   />
                 </ListItem>
               </List>
+
+              <Divider />
 
               <Box p={7}>
                 <Typography variant="body2">
@@ -304,94 +305,19 @@ function HomePage({ darkMode, setDarkMode }) {
                   </ListSubheader>
                 }
               >
-                <ListItem button classes={{ root: classes.listItem }}>
-                  <ListItemIcon>
-                    <AddCircle />
-                  </ListItemIcon>
-                  <ListItemText
-                    classes={{
-                      primary: classes.listItemText,
-                    }}
-                    primary={"Música"}
-                  />
-                </ListItem>
-                <ListItem button classes={{ root: classes.listItem }}>
-                  <ListItemIcon>
-                    <AddCircle />
-                  </ListItemIcon>
-                  <ListItemText
-                    classes={{
-                      primary: classes.listItemText,
-                    }}
-                    primary={"Esportes"}
-                  />
-                </ListItem>
-                <ListItem button classes={{ root: classes.listItem }}>
-                  <ListItemIcon>
-                    <AddCircle />
-                  </ListItemIcon>
-                  <ListItemText
-                    classes={{
-                      primary: classes.listItemText,
-                    }}
-                    primary={"Jogos"}
-                  />
-                </ListItem>
-                <ListItem button classes={{ root: classes.listItem }}>
-                  <ListItemIcon>
-                    <AddCircle />
-                  </ListItemIcon>
-                  <ListItemText
-                    classes={{
-                      primary: classes.listItemText,
-                    }}
-                    primary={"Filmes"}
-                  />
-                </ListItem>
-                <ListItem button classes={{ root: classes.listItem }}>
-                  <ListItemIcon>
-                    <AddCircle />
-                  </ListItemIcon>
-                  <ListItemText
-                    classes={{
-                      primary: classes.listItemText,
-                    }}
-                    primary={"Notícias"}
-                  />
-                </ListItem>
-                <ListItem button classes={{ root: classes.listItem }}>
-                  <ListItemIcon>
-                    <AddCircle />
-                  </ListItemIcon>
-                  <ListItemText
-                    classes={{
-                      primary: classes.listItemText,
-                    }}
-                    primary={"Ao vivo"}
-                  />
-                </ListItem>
-                <ListItem button classes={{ root: classes.listItem }}>
-                  <ListItemIcon>
-                    <AddCircle />
-                  </ListItemIcon>
-                  <ListItemText
-                    classes={{
-                      primary: classes.listItemText,
-                    }}
-                    primary={"Destaques"}
-                  />
-                </ListItem>
-                <ListItem button classes={{ root: classes.listItem }}>
-                  <ListItemIcon>
-                    <AddCircle />
-                  </ListItemIcon>
-                  <ListItemText
-                    classes={{
-                      primary: classes.listItemText,
-                    }}
-                    primary={"Videos 360"}
-                  />
-                </ListItem>
+                {categorias2.map((item, index) => (
+                  <ListItem button classes={{ root: classes.listItem }}>
+                    <ListItemIcon>
+                      <AddCircle />
+                    </ListItemIcon>
+                    <ListItemText
+                      classes={{
+                        primary: classes.listItemText,
+                      }}
+                      primary={item}
+                    />
+                  </ListItem>
+                ))}
               </List>
             </div>
           </Drawer>
