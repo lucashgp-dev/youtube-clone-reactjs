@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { ThemeProvider, createTheme, makeStyles } from "@material-ui/core";
+import HomePage from "./HomePage";
+
+const useStyles = makeStyles({
+  root: {},
+});
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const theme = createTheme({
+    spacing: 4,
+    palette: {
+      type: darkMode ? "dark" : "light",
+      primary: {
+        main: "#c4302b",
+      },
+      secondary: {
+        main: "#065fd4",
+      },
+      background: {
+        default: darkMode ? "#232323" : "#FFF",
+        dark: darkMode ? "#181818" : "#F4F6F8",
+        paper: darkMode ? "#232323" : "#FFF",
+      },
+    },
+  });
+
+  const classes = useStyles();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <HomePage darkMode={darkMode} setDarkMode={setDarkMode} />
+    </ThemeProvider>
   );
 }
-
 export default App;
